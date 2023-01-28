@@ -1,0 +1,35 @@
+---
+title: "About"
+about:
+  template: jolla
+  image: profile.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/davegrays
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/david-grayson/
+    - icon: google
+      text: Scholar
+      href: https://scholar.google.com/citations?user=oh8zlrIAAAAJ&hl=en
+---
+
+Hi! I'm David. I'm a machine learning engineer and applied ML scientist. My interests include computer vision, generative AI, and deep learning in biotech. I am a big fan of mentorship and servant leadership. Some non-professional things I love include traveling to far-flung places with my bike and trying to set high scores on pinball machines :)
+
+## Education
+
+University of California, Davis | Davis, CA | PhD in Neuroscience | Sept 2012 - May 2017
+
+Cornell University | Ithaca, NY | B.A. in Computational Neuroscience | Sept 2004 - June 2011
+
+## Experience
+
+Buzz Solutions | Senior ML Engineer | Jan 2023 - present
+
+Logic 20/20 | Lead Data Scientist | Jan 2021 - August 2022
+
+System1 Biosciences | Senior Machine Learning Scientist | Feb 2019 - April 2020
+
+Intuit | Senior Data Scientist - AI/ML | Sep 2017 - Jan 2019
+
