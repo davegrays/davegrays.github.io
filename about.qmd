@@ -29,7 +29,10 @@ Buzz Solutions | Senior ML Engineer | Jan 2023 - present
 
 Logic 20/20 | Lead Data Scientist | Jan 2021 - August 2022
 
-System1 Biosciences | Senior Machine Learning Scientist | Feb 2019 - April 2020
+System1 Biosciences | Senior ML Scientist | Feb 2019 - April 2020
 
 Intuit | Senior Data Scientist - AI/ML | Sep 2017 - Jan 2019
 
+--
+
+![](email.png)

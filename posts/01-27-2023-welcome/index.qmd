@@ -1,5 +1,5 @@
 ---
-title: "Welcome To My Blog"
+title: "Ey yo"
 date: "2023-01-27"
 categories:
 ---

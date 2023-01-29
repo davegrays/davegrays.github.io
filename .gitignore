@@ -6,3 +6,7 @@ Gemfile.lock
 **/.ruby-version
 
 /.quarto/
+
+*.DS_Store
+*.Rhistory
+*.ipynb_checkpoints/

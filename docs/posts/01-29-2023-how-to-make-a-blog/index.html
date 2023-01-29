@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-01-27">
+<meta name="dcterms.date" content="2023-01-29">
 
-<title>David Grayson - Ey yo</title>
+<title>David Grayson - How to make a personal blog using jupyter notebooks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -98,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Ey yo</h1>
+      <h1 class="title">How to make a personal blog using jupyter notebooks</h1>
                       </div>
   </div>
     
@@ -109,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 27, 2023</p>
+        <p class="date">January 29, 2023</p>
       </div>
     </div>
     
@@ -121,7 +184,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem" id="toc-problem" class="nav-link active" data-scroll-target="#problem">Problem</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#step-1-create-your-github-repo" id="toc-step-1-create-your-github-repo" class="nav-link" data-scroll-target="#step-1-create-your-github-repo">Step 1: Create your github repo</a></li>
+  <li><a href="#step-2-initialize-your-quarto-site-locally" id="toc-step-2-initialize-your-quarto-site-locally" class="nav-link" data-scroll-target="#step-2-initialize-your-quarto-site-locally">Step 2: Initialize your quarto site locally</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -129,10 +201,49 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I keep hearing from people about how important it is to blog. And I keep having ideas that I feel like I should put down on paper. So, here goes. Entry one. Done!</p>
-<p><img src="rocky.jpg" class="img-fluid"></p>
+<section id="problem" class="level2">
+<h2 class="anchored" data-anchor-id="problem">Problem</h2>
+<p>So I made this personal website and blog after spending a fair amount of time researching how to publish a personal website and blog.</p>
+<p>Some options that were suggested to me:</p>
+<ul>
+<li>Medium</li>
+<li>Wordpress</li>
+<li>Github Pages + Jekyll</li>
+<li>Github Pages + fastpages</li>
+</ul>
+<p>After realizing that I’d want tight integration between the tools I was using to produce content (i.e.&nbsp;jupyter notebooks) and the mechanism for publishing the content, I decided against Medium or Wordpress.</p>
+<p>Github pages + jekyll was more what I wanted, but also turned up a few issues. 1. There was a fair amount to learn about jekyll to understand how to customize formatting. 2. It’s much easier to use an existing template, but the options out there generally are either not well-documented or not maintained, and 3. There’s a still an integration layer I’d need to manage in order to transfer code/outputs from notebooks to web content. I wanted SOME ability to customize, but mostly I wanted to get this thing up and running as fast as possible, and minimize potential work down the road.</p>
+<p>Those issues are what <a href="https://fastpages.fast.ai/">fastpages</a> was designed to solve. It’s a well-documented, open-source package that enables automated rendering of content from a notebook into html content that is ready to publish, with some flexibility in how to render the content. It’s not a perfect solution - you’re still tied to their design templates. But there’s always a trade-off between customizability and ease of use, and this seemed like the trade-off that was right for me.</p>
+<p>But, fastpages has been deprecated in favor of another open-source package.</p>
+</section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p>Enter <a href="">Quarto</a>. This post will cover how to use Github Pages with Quarto in order to manage a personal website and blog with content that is generated entirely through jupyter notebooks. As you’ll see, what’s nice about this is that once you do the initial setup, all the content can be managed through nothing more than the notebooks themselves (if you’re into that sort of thing).</p>
+<p>So let’s get to it.</p>
+</section>
+<section id="step-1-create-your-github-repo" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-your-github-repo">Step 1: Create your github repo</h2>
+<p>Name it &lt;username&gt;.github.io and don’t include a README. e.g.:</p>
+<p>[]create_gh_repo.png</p>
+<p>Go to the repo’s Pages settings and enable deployment of the main/master branch from the /docs folder</p>
+<p>[]edit_repo_settings.png</p>
+</section>
+<section id="step-2-initialize-your-quarto-site-locally" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-initialize-your-quarto-site-locally">Step 2: Initialize your quarto site locally</h2>
+<p>clone your repo locally and create the initial quarto documents</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git clone https:<span class="op">//</span>github.com<span class="op">/&lt;</span>username<span class="op">&gt;/&lt;</span>username<span class="op">&gt;</span>.github.io</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>quarto create<span class="op">-</span>project <span class="op">&lt;</span>username<span class="op">&gt;</span>.github.io <span class="op">--</span><span class="bu">type</span> website:blog</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Edit the generated <code>_quarto.yml</code> file to use <code>docs</code> as the <code>output-dir</code>. It should read from the top:</p>
+<pre><code>project:
+  type: website
+  output-dir: docs</code></pre>
+<p>Then, from the root of your repo, add a <code>.nojekyll</code> file to the root of your repository that tells GitHub Pages not to do additional processing of your published site using Jekyll</p>
+<pre><code>touch .nojekyll</code></pre>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
