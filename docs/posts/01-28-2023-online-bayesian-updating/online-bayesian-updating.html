@@ -99,10 +99,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -661,8 +661,8 @@ standard devs: [2.07364747 3.53659583 3.7744848 ]</code></pre>
 <p><img src="online-bayesian-updating_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>The figure shows the decision boundary change at each update, where the darker lines show the later updates. You can see the initial lines are a bit wonky, but as new data is added the updates converge on a good estimate of the boundary.</p>
-<p>And that’s it! Note that because it is actually the full posterior that is estimated, and not just the point estimate of its maximum, I can continue updating the model in perpetuity as new data arrives and still be able to recover the new decision boundary at any time.</p>
+<p>The figure shows the decision boundary at each update, where the darker lines show the later updates. You can see the initial lines are a bit wonky, but as new data is added the updates converge on a good estimate of the boundary.</p>
+<p>And that’s it! Note that because it is actually the full posterior that is estimated, and not just the point estimate of its maximum, I can continue updating the model in perpetuity as new data arrives and still be able to recover point estimates of the weights at any time.</p>
 </section>
 <section id="further-reading" class="level3">
 <h3 class="anchored" data-anchor-id="further-reading">Further reading</h3>
