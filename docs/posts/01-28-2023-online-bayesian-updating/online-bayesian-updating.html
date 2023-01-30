@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="simulate-some-data-for-a-logistic-regression" class="level3">
 <h3 class="anchored" data-anchor-id="simulate-some-data-for-a-logistic-regression">Simulate some data for a logistic regression</h3>
 <p>(doesn’t matter how, as long as we can visualize a decision boundary)</p>
-<p>I’ll use 100 samples for simplicity</p>
+<p>I’ll use 100 samples for simplicity. The idea is that I’m going to use subsamples of this dataset to fit and update a model, one subsample at a time.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_obs <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -666,7 +666,7 @@ standard devs: [2.07364747 3.53659583 3.7744848 ]</code></pre>
 </section>
 <section id="further-reading" class="level3">
 <h3 class="anchored" data-anchor-id="further-reading">Further reading</h3>
-<p>Just as I’ve implemented this solution as a bayesian regression, the same approach could be taken using more complex (e.g.&nbsp;deep) models by implementing them as bayesian neural networks (e.g.&nbsp;check out <a href="http://pyro.ai/examples/intro_long.html">pyro</a> or this more lightweight and very impressive <a href="https://github.com/Harry24k/bayesian-neural-network-pytorch">package</a>). Because the parameters of a bayesian NN are described as posterior distributions, they could also be updated in an online fashion by continually resetting posteriors &lt;-&gt; priors.</p>
+<p>Just as I’ve implemented this solution as a bayesian regression, the same basic approach could be taken using more complex (e.g.&nbsp;deep) models by implementing them as bayesian neural networks (e.g.&nbsp;check out <a href="http://pyro.ai/examples/intro_long.html">pyro</a> or this more lightweight and very impressive <a href="https://github.com/Harry24k/bayesian-neural-network-pytorch">package</a>). Updating bayesian NNs will rely on more advanced methods than the quadratic approximations done here (e.g.&nbsp;variational inference), but these can also be implemented an online fashion by continually resetting posteriors &lt;-&gt; priors.</p>
 
 
 </section>
