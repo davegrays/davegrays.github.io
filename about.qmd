@@ -15,7 +15,7 @@ about:
       href: https://scholar.google.com/citations?user=oh8zlrIAAAAJ&hl=en
 ---
 
-Hi! I'm David. I'm a machine learning engineer and applied ML scientist. My interests include computer vision, generative AI, and deep learning in biotech. I am a big fan of mentorship and servant leadership. Some non-professional things I love include traveling to far-flung places with my bike and trying to set high scores on pinball machines :)
+Hi! I'm David. I'm a machine learning engineer and applied ML scientist. My interests include computer vision, generative AI, and deep learning in biotech. I am a big fan of mentorship and servant leadership. You can read some of my musings in my blog here. Some non-professional things I love include traveling to far-flung places with my bike and trying to set high scores on pinball machines :)
 
 ## Education
 

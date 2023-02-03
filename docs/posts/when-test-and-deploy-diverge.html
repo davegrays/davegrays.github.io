@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>David Grayson - When train, test, and deploy (really) diverge</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">David Grayson</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">When train, test, and deploy (really) diverge</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 3, 20223</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>A common problem in machine learning is when your training data and real-world data diverge. One of the ways they can diverge is in their class balances.</p>
+<p>For example, let’s say you are building a model to help a semiconductor factory to detect defects in their microchips before they are shipped off to their customers. Let’s say they are only expecting 1 such defect for every 10,000 chips they produce. Now, let’s also say you have procured a dataset of 300 microchips with defects. You would then need 300 * 10000 = 3,000,000 more images for your training dataset, each of them inspected to make sure they aren’t defective, to match the real class balance. Instead, you include just a few thousand such images, reasoning that this kind of model should easily converge with a more balanced dataset anyway.</p>
+<p>But this poses a problem downstream. If the class balance of the training data and real world data diverge (in this case, 1:10 vs 1:10,000), the model’s behavior during deployment will be poorly calibrated. Here it expects the non-defect class to appear 1000 times more frequently than it actually does, which will cause an excessive false positive rate (low precision) at runtime. Simply put, you run the risk of saying there’s 1000 times more broken chips than there are.</p>
+<p>Therefore, we must take additional steps to estimate the model’s theoretical runtime (deployment) accuracy.</p>
+<p>One approach is to run your evaluation metrics using a sample of test data with the correct class balance (i.e.&nbsp;1:10,000). You can then choose your decision threshold based on the precision-recall or ROC curve generated on this test data, and feel good that you know approximately the runtime precision/recall/tpr/fpr when deploying your model with this same threshold.</p>
+<p>However, this might not be feasible in every scenario. Perhaps you don’t have access to all the millions of non-defect images taken or do not have resources to label that many images. Or even if you did, perhaps your class balance is so extreme that it’s simply not computationally tractable to reproduce. For example, let’s imagine you want to generate early earthquake warnings by building a model that uses 10 seconds of high-resolution seismic data. In California, there may only be 2-3 earthquakes of any significance per year, but there are 3,153,600 distinct 10s windows in a year, each of which could be considered a negative example. Multiply that by the dozens of different geolocations you would want different alert systems for and… you get the idea. This is such an extreme imbalance that you likely would never use all negative examples even for testing purposes.</p>
+<p>As before, our training dataset has a different class balance relative to the deployment scenario, but now, so does our test data. We <strong><em>still</em></strong> need a way to estimate the model’s theoretical accuracy during runtime (deployment). How?</p>
+<p>Well, there’s good news and bad news, and they’re both the same. It depends on which accuracy metric. Since recall is already conditioned on the positive class, it is insensitive to class ratio, therefore the true recall at any given threshold is already estimated in the test data regardless of imbalance. Precision, because it is conditioned on the predicted class, is what’s influenced. Recall specifically that:</p>
+<p><span class="math inline">\(Recall = P(\hat{y}=1|y=1)\)</span></p>
+<p><span class="math inline">\(Precision = P(y=1|\hat{y}=1)\)</span></p>
+<p>If these are the two metrics we care about, then we only need to adjust our estimate of the model’s <strong>precision</strong> during deployment. Let’s begin with</p>
+<p><span class="math inline">\(Precision_{test} = TP_{test} / (TP_{test} + FP_{test})\)</span></p>
+<p>Where <span class="math inline">\(TP_{test}\)</span> and <span class="math inline">\(FP_{test}\)</span> are the total number of true positives and false positives in the test dataset.</p>
+<p>Let’s assume now that we know the class ratios in both the test dataset as well as in the deployed scenario. Since it is the negative class that is upsampled during deployment, we simulate this by keeping the value for TP fixed and multiplying the value for FP (since these are negative class examples) by the fold change in negative over positive class ratio.</p>
+<p><span class="math inline">\(FP_{deploy} = FP_{test} * \frac{neg_{deploy} / pos_{deploy}}{neg_{test} / pos_{test}}\)</span></p>
+<p>Where <span class="math inline">\(neg\)</span> and <span class="math inline">\(pos\)</span> refer to the counts of negative and positive examples within either the test data or deployment scenario.</p>
+<p>Then we get</p>
+<p><span class="math inline">\(Precision_{deploy} = TP_{test} / (TP_{test} + FP_{deploy})\)</span></p>
+<p>As you generate the precision-recall curve using your test data, you can use this as your corrected precision value. Again, recall is unchanged. The curve corresponds to the theoretical behavior of the model during deployment.</p>
+<p>Let’s take our microchip example again to see just how big of an impact the difference in class balance can have.</p>
+<p>Let’s say we want a precision of 0.33 when deployed, and the difference in class balance between train/test and deployment is still 1000-fold.</p>
+<p>Solving for <span class="math inline">\(0.33 = TP / (TP + FP*1000)\)</span> gives us <span class="math inline">\(FP = 1.33*TP / 330\)</span>, which gives us an initial (uncorrected) precision of <span class="math inline">\(1 / (1 + 1.33 / 330) = 0.996\)</span>.</p>
+<p>That means that at a (nearly perfect) precision of 0.996 in the test data, the same threshold during deployment has a (pretty bad) precision of 0.33.</p>
+<p>Finally, keep in mind that this method makes some pretty strong assumptions:</p>
+<ol type="1">
+<li>Your training and test datasets are random samples of your deployment scenario</li>
+<li>You know the “true” class balance in your deployment scenario</li>
+<li>The model’s probabilities are well calibrated (they reflect their true likelihoods) (see <a href="https://machinelearningmastery.com/calibrated-classification-model-in-scikit-learn/">here</a>). That’s especially important for higher probabilities, where often models are not so well calibrated! In my experience, this is often where things get quite tricky. It is worth doing some research to see whether your model can be better calibrated with the highest confidence predictions.</li>
+</ol>
+<p>Some or all these assumptions are frequently wrong. Ultimately, there’s no equal substitute for having a correctly balanced representation of your real world data. However, that’s often not feasible, and in those cases this will help get a better approximation of your model’s real world behavior.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
