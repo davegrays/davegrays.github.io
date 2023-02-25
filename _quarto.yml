@@ -4,11 +4,14 @@ project:
 
 website:
   title: "David Grayson"
+  site-url: "https://davegrays.github.io"
+  site-path: "/"
   navbar:
     left:
       - href: index.qmd
         text: Blog
       - about.qmd
+
 
 format:
   html:
