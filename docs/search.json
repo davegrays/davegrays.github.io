@@ -95,20 +95,6 @@
     "href": "about.html",
     "title": "Hi! I’m David",
     "section": "",
-    "text": "My professional bio:\nI am an experienced data scientist and ML engineer who has worked at large and small companies covering software tech, biotech, and utilities. Before working in industry I received my PhD in neuroscience where I published papers on computational neuroimaging. A summary of my industry experience: 1) I designed and built real-time ML apps for Intuit’s QuickBooks, improving the product experience for over a million users. 2) led some cool projects at a biotech startup predicting neurological disease using computer vision, analytics, and ML. 3) Most recently I have been working as a technical lead in the utilities space, helping teams of data scientists and engineers to implement predictive maintenance using machine learning and computer vision.\nMore broadly:\nMy professional interests include computer vision, generative AI, and deep learning in biotech. I am a big believer in servant leadership and mentorship, and I do both actively (if interested, you can search for my profile on mentorcruise.com). I also am generally interested in topics at the intersection of science, AI, data, and epistemology. You can read some of my first musings in my blog that I’ve just started here.\nSome hobbies:\nI love capoeira, skiing, traveling to far-flung places with my bike, and trying to set high scores on pinball machines :)"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\nUniversity of California, Davis | Davis, CA | PhD in Neuroscience | Sept 2012 - May 2017\nCornell University | Ithaca, NY | B.A. in Computational Neuroscience | Aug 2004 - May 2008"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "About",
-    "section": "Experience",
-    "text": "Experience\nBuzz Solutions | Senior ML Engineer | Jan 2023 - present\nLogic 20/20 | Lead Data Scientist | Jan 2021 - August 2022\nSystem1 Biosciences | Senior ML Scientist | Feb 2019 - April 2020\nIntuit | Senior Data Scientist - AI/ML | Sep 2017 - Jan 2019\n–"
+    "text": "My professional bio:\nI am a data scientist and ML engineer. I’ve worked at large and small companies covering software tech, biotech, and utilities. Before working in industry I received my PhD in neuroscience where I published papers on computational neuroimaging. A summary of my industry experience: 1) I designed and built real-time ML apps for Intuit’s QuickBooks, improving the product experience for over a million users. 2) led some cool projects at a biotech startup predicting neurological disease using computer vision, analytics, and ML. 3) Most recently I have been working as a technical lead in the utilities space, helping teams of data scientists and engineers to implement predictive maintenance using machine learning and computer vision.\nMore broadly:\nMy professional interests include computer vision, generative AI, and deep learning in biotech. I am a big believer in servant leadership and mentorship, and I do both actively. I also am generally interested in topics at the intersection of science, AI, data, and epistemology. You can read some of my first musings in my blog that I’ve just started here.\nSome hobbies:\nI love capoeira, skiing, traveling to far-flung places with my bike, and trying to set high scores on pinball machines :)"
   }
 ]

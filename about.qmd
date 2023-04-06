@@ -17,11 +17,11 @@ about:
 
 **My professional bio:**
 
-I am an experienced data scientist and ML engineer who has worked at large and small companies covering software tech, biotech, and utilities. Before working in industry I received my PhD in neuroscience where I published papers on computational neuroimaging. A summary of my industry experience: 1) I designed and built real-time ML apps for Intuit's QuickBooks, improving the product experience for over a million users. 2) led some cool projects at a biotech startup predicting neurological disease using computer vision, analytics, and ML. 3) Most recently I have been working as a technical lead in the utilities space, helping teams of data scientists and engineers to implement predictive maintenance using machine learning and computer vision.
+I am a data scientist and ML engineer. I've worked at large and small companies covering software tech, biotech, and utilities. Before working in industry I received my PhD in neuroscience where I published papers on computational neuroimaging. A summary of my industry experience: 1) I designed and built real-time ML apps for Intuit's QuickBooks, improving the product experience for over a million users. 2) led some cool projects at a biotech startup predicting neurological disease using computer vision, analytics, and ML. 3) Most recently I have been working as a technical lead in the utilities space, helping teams of data scientists and engineers to implement predictive maintenance using machine learning and computer vision.
 
 **More broadly:**
 
-My professional interests include computer vision, generative AI, and deep learning in biotech. I am a big believer in servant leadership and mentorship, and I do both actively (if interested, you can search for my profile on mentorcruise.com). I also am generally interested in topics at the intersection of science, AI, data, and epistemology. You can read some of my first musings in my blog that I've just started here.
+My professional interests include computer vision, generative AI, and deep learning in biotech. I am a big believer in servant leadership and mentorship, and I do both actively. I also am generally interested in topics at the intersection of science, AI, data, and epistemology. You can read some of my first musings in my blog that I've just started here.
 
 **Some hobbies:**
 
