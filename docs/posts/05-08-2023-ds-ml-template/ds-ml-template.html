@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-05-08">
+
+<title>David Grayson - Putting data science philosophy into practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">David Grayson</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Putting data science philosophy into practice</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 8, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TL;DR</a></li>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">The challenge</a></li>
+  <li><a href="#a-simple-proposal" id="toc-a-simple-proposal" class="nav-link" data-scroll-target="#a-simple-proposal">A simple proposal</a></li>
+  <li><a href="#but-wait" id="toc-but-wait" class="nav-link" data-scroll-target="#but-wait">But wait</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="tldr" class="level3">
+<h3 class="anchored" data-anchor-id="tldr">TL;DR</h3>
+<p><a href="https://github.com/davegrays/ds-ml-template">Use this template repo</a></p>
+</section>
+<section id="the-challenge" class="level3">
+<h3 class="anchored" data-anchor-id="the-challenge">The challenge</h3>
+<p>It’s 2023. There’s now so many blogs, tutorials, courses, and even degrees that cover how to be an effective data scientist, follow best practices, and build effective data science pipelines. This post will cover my own opinionated take on the pipelines part. Specifically, what’s a good template to follow for building the codebase around a new data science / ML project?</p>
+<p>I will define what I mean by “good” further below. But for now, suffice it to say that we want this template to generalize reasonably well to a variety of scenarios that typically involve exploratory data analysis, data processing, and (hopefully) building/validating an ML model.</p>
+<p>First off, let’s understand how data scientists and ML engineers would actually LIKE their finished pipelines to run, in an ideal world:</p>
+<p><img src="ds_ml_template_post_1.png" class="img-fluid"></p>
+<p>However, there’s a dissonance here. Every data scientist knows that the development process that gets you here is highly nonlinear, even circular at times. This is why the data science process is often shown as looking something like this:</p>
+<p><img src="ds_ml_template_post_2.png" class="img-fluid"></p>
+<p>And the reality is that things are even much more complicated and upredictable. Not only is the workflow non-linear, it’s also multidirectional, which leads to something that looks more like this:</p>
+<p><img src="ds_ml_template_post_3.png" class="img-fluid"></p>
+<p>I have to credit one of my previous managers, Adam Cornille, for introducing me to a similar visual years ago. There’s two additional points here that have really influenced my thinking: 1) insights from one stage can revise any previous stage in parallel, and 2) the initial stages of the ds lifecycle typically yield the most reward, in the end, for the effort you put in.</p>
+<p>But the main point is, things can get complicated quickly. Which often leads to spaghetti code that looks something like this:</p>
+<p><img src="ds_ml_template_post_4.png" class="img-fluid"></p>
+<p>(Many thanks again to Guillermo)</p>
+<ul>
+<li>Need to change a script?</li>
+<li>Need to test changes to the input data?</li>
+<li>Need to transfer ownership of your project?</li>
+<li>Need to reproduce a result?</li>
+</ul>
+<p>Good luck…</p>
+<p>So, how do we deal with this? Specifically, how do we enable a highly nonlinear, multidirectional workflow that doesn’t lead to brittle, costly code that’s impossible to alter or let anyone else use?</p>
+<p>Let’s return to our definition of “good”. I like to break this down into a few philosophical categories:</p>
+<ul>
+<li>Modularity
+<ul>
+<li>A modular codebase is organized into smaller components that can be easily reused and combined. This makes it easier to maintain and extend the codebase, ultimately saving time and effort.</li>
+</ul></li>
+<li>Readability
+<ul>
+<li>Readable code is crucial for collaboration and debugging. Clear, well-written code helps ensure that others can quickly grasp its functionality, reducing errors and misunderstandings.</li>
+</ul></li>
+<li>Repeatability
+<ul>
+<li>In data science, it’s essential to be able to reproduce results. A repeatable workflow ensures that your analyses and models can be easily reproduced by yourself and others.</li>
+</ul></li>
+<li>Robustness
+<ul>
+<li>Robust code is designed to handle unexpected inputs and situations gracefully. Most real-world data science projects involve questionable data quality and consistency, making it likely that new edge cases will break your pipelines or violate their assumptions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="a-simple-proposal" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-proposal">A simple proposal</h3>
+<p>To that end, I’ve put together a template repository that takes my own opinions on how to address these challenges and puts them into practice.</p>
+<p><a href="https://github.com/davegrays/ds-ml-template">ds-ml-template</a></p>
+<p>That’s summarized with this visual:</p>
+<p><img src="ds_ml_template_post_5.png" class="img-fluid"></p>
+<p>You can read the repo’s <a href="https://github.com/davegrays/ds-ml-template">README</a> to see how each of the 4 philosophical elements are addressed. But the key ideas here are:</p>
+<ul>
+<li>Modular, installable codebase.</li>
+<li>Separation of code from dependencies and other settings</li>
+<li>Pipeline management and low-code notebooks to test workflows</li>
+<li>Testing locally and through CI.</li>
+</ul>
+<p>A question I often ask prospective candidates for DS/MLE positions something like, “Let’s say you’ve worked on a data science project for some time and now need to transfer ownership of the project to someone new. What are some best practices you would use in your project repo, to ensure they are successful?”</p>
+<p>There are, of course, many facets to this question, and there’s plenty of room for debate on the implementation details that this template does not address (e.g.&nbsp;documentation, code quality, data/model versioning). But, I’m generally looking for answers that can address one of these four philosophical elements in some way. And the more someone can demonstrate their understanding of how to put these philosophies into practice, the better. With that said, I’ve already confessed to being opinionated about this, and I welcome feedback about those opinions. At the same time, I hope others who are still searching for more structure might learn from some of my own experience.</p>
+</section>
+<section id="but-wait" class="level3">
+<h3 class="anchored" data-anchor-id="but-wait">But wait</h3>
+<p>What about workflow management systems (e.g.&nbsp;prefect, metaflow, airflow, etc.)? A quick word on this…</p>
+<p>What I have noticed from some of the more junior folks is that pipelines can be brittle not only due to lack of familiarity with the right tools, but lack of understanding of the principles I’ve just discussed. So, a WMS is certainly helpful in many regards, but is neither necessary nor sufficient to build a pipeline that meets any of these criteria satisfactorily.</p>
+<p>This is a difference in focus. The template repository is centered around code organization and best practices, and designed as a general-purpose solution that can be adapted to various DS and ML projects. Workflow management systems are focused on orchestrating and managing the execution of tasks in a workflow. The template repo helps you write better code, while a WMS helps you manage the execution of that code.</p>
+<p>Ideally they would be used together. You can structure your pipelines using the template repository and then use a workflow management system to define, schedule, and monitor its execution. A WMS like kubeflow, metaflow, prefect, or airflow is designed to handle many challenges this repo doesn’t address, like parallelization, resource management, and monitoring. It’s a good idea to integrate your code eventually with one of these systems.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
