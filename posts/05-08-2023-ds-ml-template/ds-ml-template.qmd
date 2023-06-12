@@ -2,6 +2,7 @@
 title: "Putting data science philosophy into practice"
 date: "2023-05-08"
 categories:
+image: ds_ml_template_post_4.png
 ---
 
 ### TL;DR
