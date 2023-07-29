@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://davegrays.github.io/posts/02-14-2023-culture-and-skepticism/culture-and-skepticism.html</loc>
-    <lastmod>2023-06-12T08:18:56.850Z</lastmod>
+    <lastmod>2023-07-29T03:50:11.870Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/posts/01-29-2023-how-to-make-a-blog/blog-post-about-posting-blogs.html</loc>
-    <lastmod>2023-06-12T08:18:57.341Z</lastmod>
+    <lastmod>2023-07-29T03:50:12.285Z</lastmod>
+  </url>
+  <url>
+    <loc>https://davegrays.github.io/posts/07-28-2023-timeline-pitfalls/ds-ml-template.html</loc>
+    <lastmod>2023-07-29T03:50:12.573Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/posts/01-27-2023-welcome/index.html</loc>
-    <lastmod>2023-06-12T08:18:57.696Z</lastmod>
+    <lastmod>2023-07-29T03:50:12.858Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/posts/01-28-2023-online-bayesian-updating/online-bayesian-updating.html</loc>
-    <lastmod>2023-06-12T08:18:58.261Z</lastmod>
+    <lastmod>2023-07-29T03:50:13.312Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/posts/02-02-2023-doctors-are-weak-learners/doctors-are-weak-learners.html</loc>
-    <lastmod>2023-06-12T08:18:58.654Z</lastmod>
+    <lastmod>2023-07-29T03:50:13.622Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/posts/02-03-2023-when-test-and-deploy-diverge/when-test-and-deploy-diverge.html</loc>
-    <lastmod>2023-06-12T08:18:59.063Z</lastmod>
+    <lastmod>2023-07-29T03:50:13.954Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/posts/05-08-2023-ds-ml-template/ds-ml-template.html</loc>
-    <lastmod>2023-06-12T08:18:59.487Z</lastmod>
+    <lastmod>2023-07-29T03:50:14.295Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/index.html</loc>
-    <lastmod>2023-06-12T08:18:59.958Z</lastmod>
+    <lastmod>2023-07-29T03:50:14.652Z</lastmod>
   </url>
   <url>
     <loc>https://davegrays.github.io/about.html</loc>
-    <lastmod>2023-06-12T08:19:00.318Z</lastmod>
+    <lastmod>2023-07-29T03:50:14.938Z</lastmod>
   </url>
 </urlset>

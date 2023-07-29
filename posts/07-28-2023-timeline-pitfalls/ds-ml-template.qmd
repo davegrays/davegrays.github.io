@@ -1,0 +1,23 @@
+---
+title: "The pitfalls of timelines in product development"
+date: "2023-07-28"
+categories:
+image: timeline_pitfalls_cover.png
+---
+
+As told through comic strips
+
+####
+- - -
+
+![](panel1.png){height=500}
+
+####
+- - -
+
+![](panel2.png){height=500}
+
+####
+- - -
+
+![](panel3.png){height=500}
