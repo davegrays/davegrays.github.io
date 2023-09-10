@@ -2,14 +2,15 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/07-28-2023-timeline-pitfalls/ds-ml-template.html",
+      "/posts/09-10-2023-clueless-and-superstitious/clueless_and_superstitious.html",
+      "/posts/07-28-2023-timeline-pitfalls/timeline_pitfalls.html",
       "/posts/05-08-2023-ds-ml-template/ds-ml-template.html",
       "/posts/02-14-2023-culture-and-skepticism/culture-and-skepticism.html",
       "/posts/02-03-2023-when-test-and-deploy-diverge/when-test-and-deploy-diverge.html",
       "/posts/02-02-2023-doctors-are-weak-learners/doctors-are-weak-learners.html",
       "/posts/01-29-2023-how-to-make-a-blog/blog-post-about-posting-blogs.html",
       "/posts/01-28-2023-online-bayesian-updating/online-bayesian-updating.html",
-      "/posts/01-27-2023-welcome/index.html"
+      "/posts/01-27-2023-welcome/welcome.html"
     ]
   }
 ]

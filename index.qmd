@@ -1,5 +1,4 @@
 ---
-title: "Musings"
 listing:
   contents: posts
   sort: "date desc"
