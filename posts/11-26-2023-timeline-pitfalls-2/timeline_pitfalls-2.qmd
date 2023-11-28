@@ -1,0 +1,22 @@
+---
+title: "The pitfalls of timelines in product development, part II"
+date: "2023-11-26"
+categories:
+---
+
+As told through comic strips
+
+####
+- - -
+
+![](panel1.png){height=250}
+
+####
+- - -
+
+![](panel2.png){height=250}
+
+####
+- - -
+
+![](panel3.png){height=250}
