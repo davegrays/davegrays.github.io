@@ -21,7 +21,7 @@ I am a data scientist and ML engineer with experience at large and small compani
 
 **More broadly:**
 
-My professional interests focus on scientific applications of machine learning, especially involving computer vision and generative AI. I am a big believer in servant leadership and mentorship, and I do both actively. I also am generally interested in topics at the intersection of science, AI, data, and epistemology. You can read a few of my own original thoughts in the blog here.
+My professional interests focus on scientific applications of machine learning, especially involving computer vision, generative AI, data science, and ML engineering. I am a big believer in servant leadership and mentorship, and I do both actively. I also am generally interested in topics at the intersection of science, AI, data, biology, and epistemology. You can read a few of my own original thoughts in the blog here.
 
 **Some hobbies:**
 
